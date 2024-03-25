@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { findTrack } from "../services/helper";
-import { useDispatch } from "react-redux";
-import { updateStudents } from "../pages/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { allStudents, updateStudents } from "../pages/user/userSlice";
 import { studentsResults } from "../services/studentsObject";
 
 function Header({ open }) {
@@ -45,6 +45,9 @@ function Header({ open }) {
 }
 
 function SortInfo({ isOpen, handleClick, setTracks, dispatch, setIsOpen }) {
+  const studentsLists = useSelector(allStudents);
+
+  if (studentsLists.length > 80) setTracks("Learnable");
   return (
     <div className={`sort-details ${!isOpen ? "transition" : "transBack"}`}>
       <p

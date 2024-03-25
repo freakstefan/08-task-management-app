@@ -13,6 +13,7 @@ function Nav() {
   const userName = useSelector(username);
   const menu = useSelector(menuOpen);
 
+
   // const menu = useSelector(openMenu)
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
